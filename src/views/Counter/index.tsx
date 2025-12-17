@@ -1,8 +1,15 @@
-import PropTypes from 'prop-types'
+import React, { memo } from 'react';
 import { Box, Button, Typography } from '@mui/material'
 import { styles } from './styles'
 
-const Counter = ({ value, onIncrement, onDecrement, onReset }) => {
+export interface CounterProps {
+    value: number;
+    onIncrement: () => void;
+    onDecrement: () => void;
+    onReset: () => void;
+}
+
+const Counter: React.FC<CounterProps> = ({ value, onIncrement, onDecrement, onReset }) => {
     return (
         <Box sx={styles.container}>
             <Typography variant="h4">
@@ -10,15 +17,15 @@ const Counter = ({ value, onIncrement, onDecrement, onReset }) => {
             </Typography>
     
             <Box sx={styles.buttons}>
-                <Button varian="contained" onClick={onIncrement}>
+                <Button onClick={onIncrement} variant="contained">
                     Increment
                 </Button>
                 
-                <Button varian="outlined" onClick={onDecrement}>
+                <Button onClick={onDecrement} variant="outlined">
                     Decrement
                 </Button>
                 
-                <Button varian="text" onClick={onReset}>
+                <Button onClick={onReset} variant="text">
                     Reset
                 </Button>
             </Box>
@@ -26,11 +33,4 @@ const Counter = ({ value, onIncrement, onDecrement, onReset }) => {
     )
 }
 
-Counter.propTypes = {
-    value: PropTypes.number.isRequired,
-    onIncrement: PropTypes.func.isRequired,
-    onDecrement: PropTypes.func.isRequired,
-    onReset: PropTypes.func.isRequired,
-}
-
-export default Counter
+export default memo(Counter)

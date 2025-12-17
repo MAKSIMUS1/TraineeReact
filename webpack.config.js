@@ -8,17 +8,17 @@ module.exports = (env = {}) => {
   return {
     mode: isProd ? 'production' : 'development',
 
-    entry: path.resolve(__dirname, 'src', 'index.jsx'),
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
 
     output: {
       path: path.resolve(__dirname, 'build'),
       filename: '[name].[contenthash].js',
       clean: true,
-      publicPath: isProd ? '/react-trainee/' : '/',
+      publicPath: isProd ? '/TraineeReact/' : '/'
     },
 
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
 
     devServer: {
@@ -41,6 +41,11 @@ module.exports = (env = {}) => {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: 'babel-loader',
+        },
+        {
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          use: 'ts-loader',
         },
         {
           test: /\.css$/,
