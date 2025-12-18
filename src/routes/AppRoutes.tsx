@@ -5,13 +5,18 @@ import Page404 from '../components/Page404';
 import AboutPage from '../components/AboutPage';
 import Layout from '../components/Layout';
 
+const basename =
+  process.env.NODE_ENV === 'production'
+    ? '/TraineeReact'
+    : '/';
+
 const AppRoutes = () => (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<Layout />} >
             <Route index element={<div>страница не выбрана.</div> } />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/counters" element={<CountersContainer />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="counters" element={<CountersContainer />} />
         </Route>
 
         <Route path="/404" element={<Page404 />} />
