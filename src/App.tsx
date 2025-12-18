@@ -1,8 +1,8 @@
 import React from 'react'
-import CounterContainer from './containers/CountersContainer'
+import AppRoutes from './routes/AppRoutes'
 
 const App: React.FC = () => {
-    return <CounterContainer />
+    return <AppRoutes />
 }
 
 export default App
