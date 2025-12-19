@@ -17,6 +17,8 @@ const Layout: React.FC = () => {
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         if (newValue === 0) navigate('/about');
         if (newValue === 1) navigate('/counters');
+        if (newValue === 2) navigate('/login');
+        if (newValue === 3) navigate('/login-redux');
     };
 
     return (
@@ -24,6 +26,8 @@ const Layout: React.FC = () => {
             <Tabs value={tabValue} onChange={handleChange} aria-label="basic tabs example">
                 <Tab label="О нас"/>
                 <Tab label="Счетчики"/>
+                <Tab label="Войти"/>
+                <Tab label="Войти с помощью redux"/>
             </Tabs>
             <Box>
                 <Outlet />

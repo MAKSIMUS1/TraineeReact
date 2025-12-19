@@ -1,0 +1,40 @@
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 100%;
+  max-width: 450px;
+  padding: 32px;
+  gap: 16px;
+  margin: auto;
+
+  box-shadow:
+    hsla(220, 30%, 5%, 0.05) 0px 5px 15px 0px,
+    hsla(220, 25%, 10%, 0.05) 0px 15px 35px -5px;
+}
+
+.login-title {
+  width: 100%;
+  font-size: clamp(2rem, 10vw, 2.15rem);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+}
+
+.login-control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-submit {
+  margin-top: 16px;
+}
+
+.login-preview {
+  margin-top: 16px;
+}

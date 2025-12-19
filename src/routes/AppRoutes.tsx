@@ -4,6 +4,9 @@ import CountersContainer from '../containers/CountersContainer';
 import Page404 from '../components/Page404';
 import AboutPage from '../components/AboutPage';
 import Layout from '../components/Layout';
+import LoginPage from '../components/LoginPage';
+import LoginReduxPage from '../components/LoginReduxPage';
+import LoginSuccessPage from '../components/LoginSuccessPage';
 
 const basename =
   process.env.NODE_ENV === 'production'
@@ -17,6 +20,9 @@ const AppRoutes = () => (
             <Route index element={<div>страница не выбрана.</div> } />
             <Route path="about" element={<AboutPage />} />
             <Route path="counters" element={<CountersContainer />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="login-redux" element={<LoginReduxPage />} />
+            <Route path="login-redux/success" element={<LoginSuccessPage />} />
         </Route>
 
         <Route path="/404" element={<Page404 />} />
