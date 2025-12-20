@@ -5,30 +5,9 @@ import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import MuiCard from '@mui/material/Card';
-import { styled } from '@mui/material/styles';
 import { useState } from 'react';
-
-const Card = styled(MuiCard)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignSelf: 'center',
-  width: '100%',
-  padding: theme.spacing(4),
-  gap: theme.spacing(2),
-  margin: 'auto',
-  [theme.breakpoints.up('sm')]: {
-    maxWidth: '450px',
-  },
-  boxShadow:
-    'hsla(220, 30%, 5%, 0.05) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.05) 0px 15px 35px -5px',
-  ...theme.applyStyles('dark', {
-    boxShadow:
-      'hsla(220, 30%, 5%, 0.5) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.08) 0px 15px 35px -5px',
-  }),
-}));
-
-const emailRegex = /\S+@\S+\.\S+/
+import { emailRegex } from '../utils/validation';
+import AuthCard from './AuthCard';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -41,7 +20,7 @@ const LoginPage = () => {
 
     const validate = () => {
         const newErrors = { email: '', password: ''}
-        
+      
         if(!emailRegex.test(email)) {
             newErrors.email = 'Введите корректную почту'
         }
@@ -67,7 +46,7 @@ const LoginPage = () => {
     }
     
     return (
-        <Card variant="outlined" className="login-card">
+        <AuthCard  variant="outlined" className="login-card">
           <Typography
             component="h1"
             variant="h4"
@@ -121,7 +100,7 @@ const LoginPage = () => {
             </Typography>
             <pre>{JSON.stringify({ email, password }, null, 2)}</pre>
           </Box>
-        </Card>
+        </AuthCard>
   );
 }
 

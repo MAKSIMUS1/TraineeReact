@@ -7,6 +7,8 @@ import Layout from '../components/Layout';
 import LoginPage from '../components/LoginPage';
 import LoginReduxPage from '../components/LoginReduxPage';
 import LoginSuccessPage from '../components/LoginSuccessPage';
+import LoginFormikPage from '../components/LoginFormikPage';
+import LoginFormikSuccessPage from '../components/LoginFormikSuccessPage';
 
 const basename =
   process.env.NODE_ENV === 'production'
@@ -23,6 +25,8 @@ const AppRoutes = () => (
             <Route path="login" element={<LoginPage />} />
             <Route path="login-redux" element={<LoginReduxPage />} />
             <Route path="login-redux/success" element={<LoginSuccessPage />} />
+            <Route path="login-formik" element={<LoginFormikPage />} />
+            <Route path="login-formik/success" element={<LoginFormikSuccessPage />} />
         </Route>
 
         <Route path="/404" element={<Page404 />} />

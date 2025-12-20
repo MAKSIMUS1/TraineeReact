@@ -19,6 +19,8 @@ const Layout: React.FC = () => {
         if (newValue === 1) navigate('/counters');
         if (newValue === 2) navigate('/login');
         if (newValue === 3) navigate('/login-redux');
+        if (newValue === 4) navigate('/login-formik');
+        if (newValue === 5) navigate('/get-activity-saga');
     };
 
     return (
@@ -28,6 +30,8 @@ const Layout: React.FC = () => {
                 <Tab label="Счетчики"/>
                 <Tab label="Войти"/>
                 <Tab label="Войти с помощью redux"/>
+                <Tab label="Войти с помощью formik"/>
+                <Tab label="Получить новую активность"/>
             </Tabs>
             <Box>
                 <Outlet />
