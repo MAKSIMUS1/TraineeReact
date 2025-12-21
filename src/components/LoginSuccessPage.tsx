@@ -10,7 +10,7 @@ const LoginSuccessPage = () => {
     return (
         <>
             <Typography variant="h4">
-                Успешный вход
+                Успешный вход с redux
             </Typography>
             <pre>{JSON.stringify({ email, password }, null, 2)}</pre>
         </>

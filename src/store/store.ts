@@ -1,18 +1,26 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import authReducer from './reducers/AuthSlice'
+import authReducer from "./reducers/AuthSlice"
 import authFormikReducer from "./reducers/AuthFormikSlice";
+import activityReducer from "./reducers/ActivitySlice";
+import createSagaMiddleware from "redux-saga";
+import { rootSaga } from "./saga/RootSaga";
+
+const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
     authReducer,
-    authFormikReducer
+    authFormikReducer,
+    activityReducer,
 })
 
-export const setupStore = () => {
-    return configureStore({
-        reducer: rootReducer
-    })
-}
+export const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => {
+        return getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware);
+    },
+});
+
+sagaMiddleware.run(rootSaga);
 
 export type RootState = ReturnType<typeof rootReducer>
-export type AppStore = ReturnType<typeof setupStore>
-export type AppDispatch = AppStore['dispatch']
+export type AppDispatch = typeof store.dispatch;
