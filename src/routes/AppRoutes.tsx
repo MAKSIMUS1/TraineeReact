@@ -10,6 +10,8 @@ import LoginSuccessPage from '../components/LoginSuccessPage';
 import LoginFormikPage from '../components/LoginFormikPage';
 import LoginFormikSuccessPage from '../components/LoginFormikSuccessPage';
 import GetActivitySagaPage from '../components/GetActivitySagaPage';
+import LoginMstPage from '../components/LoginMstPage';
+import LoginMstSuccessPage from '../components/LoginMstSuccessPage';
 
 const basename =
   process.env.NODE_ENV === 'production'
@@ -29,6 +31,8 @@ const AppRoutes = () => (
             <Route path="login-formik" element={<LoginFormikPage />} />
             <Route path="login-formik/success" element={<LoginFormikSuccessPage />} />
             <Route path="get-activity-saga" element={<GetActivitySagaPage />} />
+            <Route path="login-mst" element={<LoginMstPage />} />
+            <Route path="login-mst/success" element={<LoginMstSuccessPage />} />
         </Route>
 
         <Route path="/404" element={<Page404 />} />
